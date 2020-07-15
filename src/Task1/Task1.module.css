@@ -1,0 +1,47 @@
+.message {
+  position: relative;
+  color: #fff;
+  background-color: #2e7384;
+  margin: 12px 8px 0;
+  padding: 7px 7px;
+  border-radius: 6px;
+  overflow-wrap: break-word;
+}
+
+.message:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -23px;
+  width: 30px;
+  height: 25px;
+  background: radial-gradient(circle at top left, transparent 58%, #2e7384 60%);
+}
+
+.timestamp {
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  text-transform: uppercase;
+  color: cyan;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 0 9px;
+}
+.usr1 {
+  grid-area: 2;
+}
+.usr2 {
+  grid-area: 3;
+}
+.usr1 .name {
+  color: chartreuse;
+}
+
+.usr2 .name {
+  color: chocolate;
+}
