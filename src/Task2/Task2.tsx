@@ -18,7 +18,6 @@ type PropsType = {
 }
 
 function Task2(props: PropsType) {
-
     let tasksArr = props.tasks.map((t) => {
             const onClickHandler = () => props.removeTask(t.id)
             return <li key={t.id}
