@@ -21,3 +21,11 @@
 .active-filter {
   background-color: aquamarine;
 }
+
+.error {
+  border: red 1px solid;
+}
+
+.error-message {
+  color: red;
+}

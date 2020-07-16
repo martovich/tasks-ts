@@ -1,0 +1,15 @@
+.spn {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.spn > span {
+  width: 85%;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  border-color: #d80711;
+  border-style: solid;
+  border-width: 3px;
+}

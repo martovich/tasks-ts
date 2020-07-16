@@ -3,6 +3,7 @@ import './App.css';
 import Task1 from "./Task1/Task1";
 import {v1} from 'uuid';
 import Task2 from "./Task2/Task2";
+import Task3 from "./Task3/Task3";
 
 
 export type FilterValuesType = "all" | "high" | "middle" | "low";
@@ -66,6 +67,7 @@ function App() {
                    filter={filter}
                    changeFilter={changeFilter}
                    removeTask={removeTask}/>
+            <Task3/>
         </div>
     );
 }
