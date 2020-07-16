@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 import s from "./Task2.module.css"
 import {FilterValuesType} from "../App";
+import MyButton from "../common/Button/MyButton";
 
 type TaskType = {
     id: string
@@ -23,7 +24,7 @@ function Task2(props: PropsType) {
             return <li key={t.id}
                        className={t.priority === "low" ? s.low : t.priority === "middle" ? s.middle : t.priority === "high" ? s.high : ""}>
                 <span>{t.name}</span>
-                <button onClick={onClickHandler}>x</button>
+                <MyButton className={undefined} text={"x"} onClick={onClickHandler}/>
             </li>
         }
     )
@@ -35,18 +36,10 @@ function Task2(props: PropsType) {
         <div>
             <ul>{tasksArr}</ul>
             <div>
-                <button className={props.filter === "all" ? "active-filter" : ""}
-                        onClick={onAllClickHandler}>all
-                </button>
-                <button className={props.filter === "high" ? "active-filter" : ""}
-                        onClick={onHighClickHandler}>high
-                </button>
-                <button className={props.filter === "middle" ? "active-filter" : ""}
-                        onClick={onMiddleClickHandler}>middle
-                </button>
-                <button className={props.filter === "low" ? "active-filter" : ""}
-                        onClick={onLowClickHandler}>low
-                </button>
+                <MyButton className={props.filter === "all" ? "active-filter" : ""} text={"all"} onClick={onAllClickHandler}/>
+                <MyButton className={props.filter === "high" ? "active-filter" : ""} text={"high"} onClick={onHighClickHandler}/>
+                <MyButton className={props.filter === "middle" ? "active-filter" : ""} text={"middle"} onClick={onMiddleClickHandler}/>
+                <MyButton className={props.filter === "low" ? "active-filter" : ""} text={"low"} onClick={onLowClickHandler}/>
             </div>
         </div>
     );

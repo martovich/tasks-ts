@@ -3,7 +3,7 @@ import '../../App.css';
 import s from "./MyInput.module.css"
 
 type PropsType = {
-    text: string
+    value: string
     error: string | null
     onChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void
     onKeyPressHandler: (e: KeyboardEvent<HTMLInputElement>) => void
@@ -13,7 +13,7 @@ function MyInput(props: PropsType) {
     return (
         <div>
             <input className={props.error ? s.error : ""}
-                   value={props.text}
+                   value={props.value}
                    onChange={props.onChangeHandler}
                    onKeyPress={props.onKeyPressHandler}
                 //className={error ? s.error : ""} //Почему так не работает!?

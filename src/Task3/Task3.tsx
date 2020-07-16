@@ -1,8 +1,8 @@
 import React, {ChangeEvent, KeyboardEvent,useState} from 'react';
 import '../App.css';
 import {v1} from "uuid";
-import MyInput from "./Input/MyInput";
-import MyButton from "./Button/MyButton";
+import MyInput from "../common/Input/MyInput";
+import MyButton from "../common/Button/MyButton";
 import s from "./Task3.module.css";
 
 export type TaskType = {
@@ -50,15 +50,15 @@ function Task3() {
     return (
         <div>
             <span className={s.spn}>{tasks.length}</span>
-            <MyInput text={text} error={error} onChangeHandler={onChangeHandler} onKeyPressHandler={onKeyPressHandler}/>
-            <MyButton text={"+"} onClickHandler={addAlert}/>
+            <MyInput value={text} error={error} onChangeHandler={onChangeHandler} onKeyPressHandler={onKeyPressHandler}/>
+            <MyButton className={undefined} text={"+"} onClick={addAlert}/>
             <ul>
                 {
                     tasks.map(t => {
                         const onClickHandler = () => removeTask(t.id)
                         return <li key={t.id} className="">
                             <span>{t.name}</span>
-                            <MyButton text={"x"} onClickHandler={onClickHandler}/>
+                            <MyButton className={undefined} text={"x"} onClick={onClickHandler}/>
                         </li>
                         }
                     )

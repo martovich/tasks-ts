@@ -4,9 +4,10 @@ import s from "./MyButton.module.css"
 
 type PropsType = {
     text: string
-    onClickHandler: () => void
+    className: string | undefined
+    onClick: () => void
 }
 function MyButton(props: PropsType) {
-    return <button onClick={props.onClickHandler}>{props.text}</button>
+    return <button onClick={props.onClick}>{props.text}</button>
 }
 export default MyButton;
