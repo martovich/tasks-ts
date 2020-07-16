@@ -1,28 +1,55 @@
 import React from 'react';
 import '../App.css';
-import s from "./Task1.module.css"
+import s from "./Task2.module.css"
+import {FilterValuesType} from "../App";
 
-export type MessageType = {
+type TaskType = {
     id: string
     name: string
-    text: string
-    time: string
+    priority: string
 }
 
 
 type PropsType = {
-    messages: Array<MessageType>
+    tasks: Array<TaskType>
+    filter: string,
+    changeFilter: (value: FilterValuesType) => void,
+    removeTask: (taskId: string) => void,
 }
 
-function Task1(props: PropsType) {
-    let msgArr = props.messages.map((msg) =>
-        <div key={msg.id} className={s.message}>
-            <p className={s.name}>{msg.name}</p>
-            {msg.text}
-            <span className={s.timestamp}>{msg.time}</span>
-        </div>
+function Task2(props: PropsType) {
+    let tasksArr = props.tasks.map((t) => {
+            const onClickHandler = () => props.removeTask(t.id)
+            return <li key={t.id}
+                       className={t.priority === "low" ? s.low : t.priority === "middle" ? s.middle : t.priority === "high" ? s.high : ""}>
+                <span>{t.name}</span>
+                <button onClick={onClickHandler}>x</button>
+            </li>
+        }
     )
-    return <div>{msgArr}</div>;
+    const onAllClickHandler = () => props.changeFilter("all")
+    const onHighClickHandler = () => props.changeFilter("high")
+    const onMiddleClickHandler = () => props.changeFilter("middle")
+    const onLowClickHandler = () => props.changeFilter("low")
+    return (
+        <div>
+            <ul>{tasksArr}</ul>
+            <div>
+                <button className={props.filter === "all" ? "active-filter" : ""}
+                        onClick={onAllClickHandler}>all
+                </button>
+                <button className={props.filter === "high" ? "active-filter" : ""}
+                        onClick={onHighClickHandler}>high
+                </button>
+                <button className={props.filter === "middle" ? "active-filter" : ""}
+                        onClick={onMiddleClickHandler}>middle
+                </button>
+                <button className={props.filter === "low" ? "active-filter" : ""}
+                        onClick={onLowClickHandler}>low
+                </button>
+            </div>
+        </div>
+    );
 }
 
-export default Task1;
+export default Task2;
