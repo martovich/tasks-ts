@@ -17,3 +17,7 @@
 .colTask2 {
   color: #2a2dff;
 }
+
+.active-filter {
+  background-color: aquamarine;
+}
