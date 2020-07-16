@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import s from "./Task1.module.css"
 
-type MessageType = {
+export type MessageType = {
     id: string
     name: string
     text: string
